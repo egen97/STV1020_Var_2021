@@ -530,7 +530,7 @@ ggplot(Personer, aes((Alder))) + #Første argument er navnet på datasettet, så
 
     ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-![](Seminar_1_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](Seminar_1_files/figure-gfm/unnamed-chunk-16-1.jpeg)<!-- -->
 
 Det var det for denne gang\! På Canvas kommer det til å ligge noen
 oppgaver dere kan jobbe med, og bare send spørsmål om dere har noen\!
