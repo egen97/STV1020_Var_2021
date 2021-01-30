@@ -5,7 +5,7 @@ Eric
 
 # Velkommen til første seminar\!
 
-![](https://raw.githubusercontent.com/egen97/STV1020_Var_2021/master/Bilder/Lovememe.png)
+![](Bilder/Lovememe.png)
 
 Gjennom 6 seminarganger skal vi nå gå igjennom alt fra hva R er og
 hvordan det fungerer, til å kjøre våre helt egne regresjonsanalyser og
@@ -72,7 +72,7 @@ en gang\!
 ?mean
 ```
 
-![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/Help.png)
+![](Bilder/Help.png)
 
 I hjelpefilen kan vi se at vi får en del informasjon om funksjonen, men
 la oss først tenkte litt på hva en funksjon er. I R jobber vi som oftest
@@ -105,7 +105,7 @@ samme problem som deg\! Litt kjapp googling, og et søk på
 
 ## Syntax-feil
 
-![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/Error.png)
+![](Bilder/Error.png)
 
 Når vi går igjennom kode vil vi fort få en del feil. Det er helt vanlig,
 og noe som er helt uungåelig\! Dere vil nok fort merke at jeg gjør en
@@ -116,7 +116,7 @@ vi skriver kode. F.eks. kan det være å skrive men() istedenfor mean(),
 glemme å lukke en parantes sånn at vi skriver mean( . Noe av det fine
 med RStudio er at den markere sånne feil for oss\!
 
-![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/TulleFeil.png)
+![](Bilder/TulleFeil.png)
 
 Her har jeg skrevet noe tullekode for å vise ossen dette funker. Som
 dere kan se på siden får jeg flere røde kryss ved siden av
@@ -128,7 +128,7 @@ RStudio mener er feil. Jeg vil hevde, hvertfall etter min egen erfaring,
 at 90 % av feilene vi gjør i R er enkle skrivefeil/syntax-feil som
 dette. Derfor er det veldig nyttig at RStudio viser det på denne måten\!
 
-![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/Coding.jpg)
+![](Bilder/Coding.jpg)
 
 # Objekter, funksjoner, og klasser
 
@@ -381,7 +381,7 @@ I envoirnment vil dere nå se at det dukker opp en ny type verdi, under
 variabler betyr dette at vi har en dataframe med 7 rader og 4 kolloner.
 Klikker dere på den vil dere se dette.
 
-![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/DF.png)
+![](Bilder/DF.png)
 
 Første observasjonen her er rad 1, som er Arne på 60 år fra Skien i
 Telemark (Norges beste by og fylke forøvrig.) Det viktigste med en
