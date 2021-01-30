@@ -3,10 +3,13 @@ title: "Seminar 1"
 author: "Eric"
 date: "18 1 2021"
 output: 
-  github_document:
+    pdf_document: 
+      keep_md: yes
+    github_document:
     fig_width: 5
     fig_height: 5
     dev: jpeg
+  
  
 
   
