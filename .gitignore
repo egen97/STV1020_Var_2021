@@ -2,8 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-*.png
-*.jpg
-*.webp
+
 Fasit_1.pdf
 Fasit_1.Rmd
