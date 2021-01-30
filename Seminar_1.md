@@ -5,7 +5,7 @@ Eric
 
 # Velkommen til første seminar\!
 
-![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/Lovememe.png)
+![](https://raw.githubusercontent.com/egen97/STV1020_Var_2021/master/Bilder/Lovememe.png)
 
 Gjennom 6 seminarganger skal vi nå gå igjennom alt fra hva R er og
 hvordan det fungerer, til å kjøre våre helt egne regresjonsanalyser og
