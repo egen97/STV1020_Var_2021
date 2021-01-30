@@ -2,9 +2,9 @@
 title: "Seminar 1"
 author: "Eric"
 date: "18 1 2021"
-output:
-  pdf_document: default
-  html_document: default
+output: github_document
+ 
+
   
 ---
 
