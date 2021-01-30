@@ -32,7 +32,7 @@ e-post (<egnilsen@student.sv.uio.no>), og på Canvas\!
 
 # R, RStudio, og Syntax-feil
 
-![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/RStudio.png)
+![](Bilder/RStudio.png)
 
 Før seminaret har dere lastet ned R, og RStudio. R er selve
 programeringsspråket vi skriver i, og som gjør at vi kan skrive kode.
