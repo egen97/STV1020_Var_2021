@@ -101,7 +101,7 @@ finnes et stort miljø rundt R, og ofte er det mange som har opplevd
 samme problem som deg\! Litt kjapp googling, og et søk på
 <https://stackoverflow.com/> vil fort gi gode svar\!
 
-![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/Search.png)
+![](Bilder/Search.png)
 
 ## Syntax-feil
 
@@ -292,7 +292,7 @@ mean(Forovrig)
     ## [1] NA
 
 Grunnen til at vi får en feilmelding her er fordi vi ikke kan ta
-gjenomsnittet av test. Om dere ser i envoirement står det også nå at
+gjenomsnittet av tekst. Om dere ser i envoirement står det også nå at
 Forovrig er chr (charater) og det "" rundt alle tegnene.
 
 Den siste klassen vi kommer til å bruke ofte (men det finnes flere) er
