@@ -89,6 +89,22 @@ fort gi gode svar!
 ![](Bilder/Search.png)
 
 
+## Prosjekter og mapper
+
+
+* Prosjekter hva/hvordan/hvorfor
+* Mappestruktur, keep it clean and simple
+
+
+
+
+
+
+
+
+
+
+
 ## Syntax-feil
 ![](Bilder/Error.png)
 
@@ -354,7 +370,7 @@ Personer <- data.frame(Navn, Alder, Fylke, By)
 ```
 
 
-I envoirnment vil dere nå se at det dukker opp en ny type verdi, under "Data" med navnet Personer. Når det står 7 obs (observasjoner) av 4 variabler betyr dette at vi har en dataframe med 7 rader og 4 kolloner. Klikker dere på den vil dere se dette. 
+I environment vil dere nå se at det dukker opp en ny type verdi, under "Data" med navnet Personer. Når det står 7 obs (observasjoner) av 4 variabler betyr dette at vi har en dataframe med 7 rader og 4 kolloner. Klikker dere på den vil dere se dette. 
 
 ![](Bilder/DF.png)
 
@@ -431,15 +447,7 @@ mean(Personer$Alder, na.rm = TRUE) #Her ser dere at vi får svaret 52.5 istedet.
                                    #na.rm betyr NA remove, og når vi setter den til TRUE ber R
                                    #om å fjerne disse NA. 
 
-#For å finne standardavvik kan vi bruke sd() funksjonen
-sd(Personer$Alder, na.rm = TRUE)
-```
 
-```
-## [1] 31.93535
-```
-
-```r
 #Eller median for å finne median
 median(Personer$Alder, na.rm = TRUE)
 ```
@@ -521,6 +529,7 @@ ggplot(Personer, aes((Alder))) + #Første argument er navnet på datasettet, så
 
 
 Det var det for denne gang! På Canvas kommer det til å ligge noen oppgaver dere kan jobbe med, og bare send spørsmål om dere har noen!
+Gleder meg til neste seminar!
 
 
 
