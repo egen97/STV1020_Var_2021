@@ -58,6 +58,31 @@ Om dere ser i enviornment nå vil dere se at vi har fått en data.frame som hete
 str(ESS)
 ```
 
+# Variabler, observasjoner, og objektnavn
+
+![](Bilder/varname.png)
+
+Når vi bruker større datasett inneholder datasettet ofte mangle flere variabler og observasjoner enn de vi ønsker å bryke i våre analyser, og variablene har navn som kan være vanskelig å huske f.eks. "Gov_Reduce_IncomDif." Det kan være lurt å fjerne de variablene og observasjonene vi ikke ønsker, og gi dem navn som er lette å forstå. 
+
+For å gjøre dette kan vi bruke 3 funksjoner. 'select()' gjør at vi kan velge de variabene vi ønsker, 'filter()' gjør at vi kan hente de observasjonene vi ønsker, og 'rename()' gjør at vi får nye navn. Disse kan vi knytte sammen med '%>%' som kalles enn "pipe". Den tar output fra et utsang og gjøre det til input i det nesten. Vi kan se på det som ordet "så." La oss si at vi vil ha variablene "party_voted_norway", "LGBT_free", og "age" fra Norge i runde 8. 
+
+```{r}
+NO8 <- ESS %>% #Her sier jeg at NO8 skal komme fra ESS
+  filter(Country == "NO" & essround == 8) %>% #Filter gjør at jeg kun får de observasjonene som har "NO" på country og 8 på
+  select(Party_Voted_NO, LGBT_Free, Age) %>% #essround. Jeg bruker & (and) for å få at begge må være TRUE. Select() gjør at jeg
+  rename(                                    #jeg kun får de tre variablene jeg velger ut.
+    "Stem" = "Party_Voted_NO", #Her velger jeg nye navn, den kommer alltid sånn at formen er "Nytt navn" = "Gammelt navn"
+    "LGBT_Rettigheter" = "LGBT_Free",
+    "Alder" = "Age"
+  )                                            
+                                      
+                                        
+  
+  
+```
+
+
+
 
 
 
