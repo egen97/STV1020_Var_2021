@@ -21,7 +21,7 @@ I dag skal vi lære hvordan å bruke logiske tester, og å få data inn i det fo
 
 ![](Bilder/prepdata.jpg)
 
-Det finnes ganske mange måter å gjøre "data-wrangling" (det fine ordet på å forandre data, google-tip) på. Et stort skille går på om du gjøre det i base-R eller med en pakke. Det finnes ganske mange pakker der ute som eksisterer for å gjøre dette enklere, men i dette seminaret vil vi fokusere på det som kalles tydiverse. Skulle du være interesert i å fortsette med R kan det være fint å se på alternativene, men vil står for at tidyverse er det beste. 
+Det finnes ganske mange måter å gjøre "data-wrangling" (det fine ordet på å forandre data, google-tip) på. Et stort skille går på om du gjøre det i base-R eller med en pakke. Det finnes ganske mange pakker der ute som eksisterer for å gjøre dette enklere, men i dette seminaret vil vi fokusere på det som kalles tydiverse. Skulle du være interesert i å fortsette med R kan det være fint å se på alternativene, men jeg vil stå for at tidyverse er det beste. 
 
 ![](Bilder/tydiverse.jpg)
 
@@ -58,6 +58,12 @@ Om dere ser i enviornment nå vil dere se at vi har fått en data.frame som hete
 str(ESS)
 ```
 
+
+Her ser vi med en gang hvilke variabler vi har, nanene, og hvilken type det er. Første variabel er "Time_News" en integer variabel, med NA som sine første observasjoner. 
+
+
+
+
 # Variabler, observasjoner, og objektnavn
 
 ![](Bilder/varname.png)
@@ -83,7 +89,21 @@ NO8 <- ESS %>% #Her sier jeg at NO8 skal komme fra ESS
 
 
 
+Nå har vi et nytt datasett, NO8. La oss begynne med å utforsøke datasettet litt. Den første måten å se datasettet på har vi gjort over. 'str()' gir oss navn på variablet og klasse. Andre funksjoner vi kan prøve er 'head()' og 'summary()'
 
+```{r}
+#Head funksjonen gir oss de første obeservasjonene i ett datasatt. 
+head(NO8) #Så lenge datasettet ikke er for stort er dette en fin måte å utforske datasettet på. 
+tail(NO8) #Head har også en motsatt funksjon, tail(), som gjør at vi kan se bunn av datasettet. 
 
+#Vi kan også kjøre summary() på hele datasettet. Da får vi ut min/maks, kvartiler, og gjenomsnitt/median
+#for alle variablene i datasettet. 
+summary(NO8)
 
+```
 
+# Plotting
+
+![](Bilder/ggplot.jpg)
+
+En annen måte, og ofte bedre, å undersøke data på er gjennom plotting. Grafer gir oss ofte mye mer og mer intiutiv informasjon om dataene våre enn ren tekst. 

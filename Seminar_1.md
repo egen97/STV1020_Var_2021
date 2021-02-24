@@ -23,6 +23,8 @@ output:
 
 Gjennom 6 seminarganger skal vi nå gå igjennom alt fra hva R er og hvordan det fungerer, til å kjøre våre helt egne regresjonsanalyser og holde på med *egen statistikk.* Jeg gleder meg!  Før hvert seminar kommer jeg til å legge ut et dokument som dette. Dette har jeg faktisk laget i R! Her vil dere se at jeg har noe tekst (og memes, dere må like memes), og noe kode. Dokumentet er det jeg har planlagt at vi skal gå igjennom på seminaret, men det kan godt hende at vi gjør noe mindre der. Etter det siste kommer det til å være en kort prøve. Om dere har noen spørsmål må dere bare sende en melding! Det kan dere både gjøre på e-post (egnilsen@student.sv.uio.no), og på Canvas! 
 
+Det finnes også utrolig mye hjelp på google! En av de viktigste ferdighetene en kan lære når en skal lære R er hvordan å søke etter hjelp. Noen nyttige forslag å starte med er (i tillegg til å prøve se ut på google) er https://stackoverflow.com/, et åpent formum hvor en kan spørre om hjelp og utrolig mange spørsmål og svar, og boka R 4 Data Science. Boka kan dere finne her https://r4ds.had.co.nz/ , og har du lest igjennom den er du allerede på et utrolig høyt nivå i R!
+
 
 ```r
 #Kode vil dere se har en egen grå bakgrunn. Alt som er skrevet her kan dere kopiere inn på deres egen pc,

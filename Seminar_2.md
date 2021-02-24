@@ -19,7 +19,7 @@ I dag skal vi lære hvordan å bruke logiske tester, og å få data inn i det fo
 
 ![](Bilder/prepdata.jpg)
 
-Det finnes ganske mange måter å gjøre "data-wrangling" (det fine ordet på å forandre data, google-tip) på. Et stort skille går på om du gjøre det i base-R eller med en pakke. Det finnes ganske mange pakker der ute som eksisterer for å gjøre dette enklere, men i dette seminaret vil vi fokusere på det som kalles tydiverse. Skulle du være interesert i å fortsette med R kan det være fint å se på alternativene, men vil står for at tidyverse er det beste. 
+Det finnes ganske mange måter å gjøre "data-wrangling" (det fine ordet på å forandre data, google-tip) på. Et stort skille går på om du gjøre det i base-R eller med en pakke. Det finnes ganske mange pakker der ute som eksisterer for å gjøre dette enklere, men i dette seminaret vil vi fokusere på det som kalles tydiverse. Skulle du være interesert i å fortsette med R kan det være fint å se på alternativene, men jeg vil stå for at tidyverse er det beste. 
 
 ![](Bilder/tydiverse.jpg)
 
@@ -105,6 +105,84 @@ str(ESS)
 ```
 
 
+Her ser vi med en gang hvilke variabler vi har, nanene, og hvilken type det er. Første variabel er "Time_News" en integer variabel, med NA som sine første observasjoner. 
 
 
 
+
+# Variabler, observasjoner, og objektnavn
+
+![](Bilder/varname.png)
+
+Når vi bruker større datasett inneholder datasettet ofte mangle flere variabler og observasjoner enn de vi ønsker å bryke i våre analyser, og variablene har navn som kan være vanskelig å huske f.eks. "Gov_Reduce_IncomDif." Det kan være lurt å fjerne de variablene og observasjonene vi ikke ønsker, og gi dem navn som er lette å forstå. 
+
+For å gjøre dette kan vi bruke 3 funksjoner. 'select()' gjør at vi kan velge de variabene vi ønsker, 'filter()' gjør at vi kan hente de observasjonene vi ønsker, og 'rename()' gjør at vi får nye navn. Disse kan vi knytte sammen med '%>%' som kalles enn "pipe". Den tar output fra et utsang og gjøre det til input i det nesten. Vi kan se på det som ordet "så." La oss si at vi vil ha variablene "party_voted_norway", "LGBT_free", og "age" fra Norge i runde 8. 
+
+
+```r
+NO8 <- ESS %>% #Her sier jeg at NO8 skal komme fra ESS
+  filter(Country == "NO" & essround == 8) %>% #Filter gjør at jeg kun får de observasjonene som har "NO" på country og 8 på
+  select(Party_Voted_NO, LGBT_Free, Age) %>% #essround. Jeg bruker & (and) for å få at begge må være TRUE. Select() gjør at jeg
+  rename(                                    #jeg kun får de tre variablene jeg velger ut.
+    "Stem" = "Party_Voted_NO", #Her velger jeg nye navn, den kommer alltid sånn at formen er "Nytt navn" = "Gammelt navn"
+    "LGBT_Rettigheter" = "LGBT_Free",
+    "Alder" = "Age"
+  )                                            
+```
+
+
+
+Nå har vi et nytt datasett, NO8. La oss begynne med å utforsøke datasettet litt. Den første måten å se datasettet på har vi gjort over. 'str()' gir oss navn på variablet og klasse. Andre funksjoner vi kan prøve er 'head()' og 'summary()'
+
+
+```r
+#Head funksjonen gir oss de første obeservasjonene i ett datasatt. 
+head(NO8) #Så lenge datasettet ikke er for stort er dette en fin måte å utforske datasettet på. 
+```
+
+```
+##   Stem LGBT_Rettigheter Alder
+## 1    4                2    74
+## 2   NA                5    17
+## 3    2                1    54
+## 4    3                1    50
+## 5    3                1    25
+## 6    4                2    43
+```
+
+```r
+tail(NO8) #Head har også en motsatt funksjon, tail(), som gjør at vi kan se bunn av datasettet. 
+```
+
+```
+##      Stem LGBT_Rettigheter Alder
+## 1540    7                1    36
+## 1541   NA                1    26
+## 1542    3                2    29
+## 1543    6                2    81
+## 1544    8                1    44
+## 1545    3                1    23
+```
+
+```r
+#Vi kan også kjøre summary() på hele datasettet. Da får vi ut min/maks, kvartiler, og gjenomsnitt/median
+#for alle variablene i datasettet. 
+summary(NO8)
+```
+
+```
+##       Stem        LGBT_Rettigheter     Alder      
+##  Min.   : 1.000   Min.   :1.000    Min.   :15.00  
+##  1st Qu.: 3.000   1st Qu.:1.000    1st Qu.:31.00  
+##  Median : 5.000   Median :1.000    Median :47.00  
+##  Mean   : 5.225   Mean   :1.571    Mean   :46.96  
+##  3rd Qu.: 7.000   3rd Qu.:2.000    3rd Qu.:61.00  
+##  Max.   :11.000   Max.   :5.000    Max.   :98.00  
+##  NA's   :392      NA's   :5
+```
+
+# Plotting
+
+![](Bilder/ggplot.jpg)
+
+En annen måte, og ofte bedre, å undersøke data på er gjennom plotting. Grafer gir oss ofte mye mer og mer intiutiv informasjon om dataene våre enn ren tekst. 
