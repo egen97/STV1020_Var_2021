@@ -15,7 +15,7 @@ output:
 
 # Oppgaver
 
-![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/Flaw.jpg)
+![](Bilder/Flaw.jpg)
 
 
 1. Finn 5-7 andre i seminaret. Sett navn, alder, hjemby og favorittfilm inn i ett datasett. 
