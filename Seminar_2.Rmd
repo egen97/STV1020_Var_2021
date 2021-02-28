@@ -106,4 +106,49 @@ summary(NO8)
 
 ![](Bilder/ggplot.jpg)
 
-En annen måte, og ofte bedre, å undersøke data på er gjennom plotting. Grafer gir oss ofte mye mer og mer intiutiv informasjon om dataene våre enn ren tekst. 
+En annen måte, og ofte bedre, å undersøke data på er gjennom plotting. Grafer gir oss ofte mye mer og mer intiutiv informasjon om dataene våre enn ren tekst. Plotting i R kan i utgangspunktet gjøres med 'plot()' funksjonen, men denne er ofte tungvin (og ikke like pen). Vi skal derfor bruke ggplot, en pakke som kommer med tidyverse laget spesifikt for å lage grafikk. Pakken er basert på det de kalles "Grammar of Graphics", som kan være verdt å google om du vil bli god på det! 
+
+Ggplot gir oss mange muligheter til hvordan vi kan lage plottene våre, det viktigste er å forstå hvordan systemet fungerer. Først kan vi begynne med det som kalles et "density-plot." Et density-plot gir oss muligheten til å se gjennomsnitt og spredning på en numerisk variabel. Altså kan vi å mye av de samme dataene som vi får når vi bruker 'summary()' funksjonen. Dette plottet er også veldig nyttig når vi skal jobbe med statistiske tester senere!
+
+```{r}
+#Alle plott starter med at vi definerer data-sett, og variabler. La oss se på distribusjonen av alder
+#i Norge. Altså vil vi ha data settet NO8 og variabelen "Alder".
+
+ggplot(NO8, aes(Alder))+ #Her skriver jeg først navnet på datasettet. Så bruker jeg funksjonen aes() (aesthetic) for variabelen
+  geom_density() #Etter en linje skriver jeg +, den brukes på samme måte som %>% for at neste linje skal følge forrige
+                 #geom_ bestemmer typen plot vi skal ha. Her er det mange å velge mellom, så lurt å bla igjennom og se hva
+                 #du får! Her bruker jeg density og får altså et density plott. 
+
+
+
+
+```
+
+Så, hva sier dette et plottet oss? Det første vi kan se er at fordelingen er høyreskjev. Altså er median noe høyere enn gjenomsnitt, og det er flere observasjoner med lavere verdier på alder. Dette gir jo også mening. Vi kan se a maksverdien er noe under 100, mens minimum er litt under 25. Gjenomsnittet er rundt 50 år. Når vi tenker over hvordan befolkningen ser ut er det flere mellom 25 og 60 enn mellom 60 og 100. Vi kan også se her at de fleste er mellom 30 og 60 år. Om dere ser på summary vil dere legge merke til at dette er mellom 1. og 2. kvartil. 
+
+
+Plottet vårt akkurat nå er veldig stygt. Vi kan gjøre noen små endringer for å få det finere; legge til tittler, fikse bakgrunn, og mer. 
+```{r}
+#Plott kan vi lagre som objekter det kan gjøre det lettere å jobbe med videre 
+AlderPlot <- ggplot(NO8, aes(Alder))+
+  geom_density() 
+
+#Her lager jeg akkurat det samme plottet, men lagrer det som et objekt med navn "AlderPlot". I enviornment vil dere se at dette
+#blir lagret som et "list" objekt. 
+
+#I første omgang skal vi se på to ting, labels og themes. Labels gjør at vi kan legge til tekst, og themes gir et tema til 
+#bakgrunn, farger, osv. 
+
+AlderPlot <- AlderPlot + labs(y = "", x = "Alder, numerisk", title = "DensityPlot for Alder", subtitle = "ESS Norge, runde 8")
+#Labs gjør at vi kan legge til forskjellige typer tekst, her sier jeg først at y-aksen ikke skal ha noen (ved å sette "" tomt),
+#så at X aksen skal ha "Alder, numerisk" og så tittler og undertittel 
+
+#Så vil jeg legge til et theme. Her finnes det mange å velge imellom, så det er verdt å sjekke ut hvem dere liker best!
+#Kan også være en god ide å se på ggthemes pakken, som kommer med mange fler og også mer muligheter til å tilpasse selv. 
+
+AlderPlot <- AlderPlot + theme_classic()
+
+#Til slutt kan vi bare kjøre objektet, og se ossen det ser ut nå:
+AlderPlot
+```
+
