@@ -213,7 +213,7 @@ Plottet vårt akkurat nå er veldig stygt. Vi kan gjøre noen små endringer for
 ```r
 #Plott kan vi lagre som objekter det kan gjøre det lettere å jobbe med videre 
 AlderPlot <- ggplot(NO8, aes(Alder))+
-  geom_density() 
+  geom_density(fill = "royalblue", alpha = .5)
 
 #Her lager jeg akkurat det samme plottet, men lagrer det som et objekt med navn "AlderPlot". I enviornment vil dere se at dette
 #blir lagret som et "list" objekt. 
