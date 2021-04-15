@@ -232,21 +232,11 @@ ggplot(data = EcoData) +
   theme(legend.title=element_blank()) +
   xlab("Growth rate") +
   ylab("No. of observations")
+ggsave("Bilder/growth.jpg") #Med ggsave kan jeg lagre plottet, så jeg f.eks. kan putte det i en word-fil
 ```
+![](Bilder/growth.jpg)
 
-![](Seminar-5_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
-
-```r
-ggplot(data = EcoData) +
-  geom_bar(aes(x=growth, fill = growth_dich),
-               binwidth = 1) +
-  theme(legend.title=element_blank()) +
-  xlab("Growth rate") +
-  ylab("No. of observations")
-```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 
 
@@ -265,18 +255,16 @@ ggplot(data = EcoData) +
   xlab("Percentage change in Real GDP Per Capita") 
 ```
 
-![](Seminar-5_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
-
+![](Seminar-5_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 ```r
-ggplot(data = EcoData) +
-  geom_point(aes(x = growth, y = inc_vote)) +
-  ylab("Incumbent-Party Vote Percentage") +
-  xlab("Percentage change in Real GDP Per Capita") 
+ggsave("RegPlotGrInc.jpg")
 ```
 
-![](Seminar-5_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
-
+```
+## Saving 6.5 x 4.5 in image
+```
+![](RegPlotGrInc.jpg)
 
 
 ## Regresjon med numerisk uavhengig variabel
@@ -388,19 +376,7 @@ ggplot(data = EcoData) +
   xlab("Percentage change in Real GDP Per Capita") 
 ```
 
-![](Seminar-5_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
-
-
-```r
-ggplot(data = EcoData) +
-  geom_point(aes(x = growth, y = inc_vote)) +
-  theme_bw() +
-  ylab("Incumbent-Party Vote Percentage") +
-  xlab("Percentage change in Real GDP Per Capita") 
-```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-18-1.pdf)<!-- --> 
-
+![](Seminar-5_files/figure-latex/unnamed-chunk-15-1.pdf)<!-- --> 
 
 
 Det neste vi skal gjøre er å legge til regresjonslinjen i plottet. Dette kan gjøres på to måter. 
@@ -417,29 +393,10 @@ ggplot(data = EcoData) +
   xlab("Percentage change in Real GDP Per Capita") +
   geom_smooth(aes(x = growth, y = inc_vote),
               method = "lm", color = "goldenrod3")
-```
 
+ggsave("GRlin.jpg")
 ```
-## `geom_smooth()` using formula 'y ~ x'
-```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-19-1.pdf)<!-- --> 
-
-
-```r
-ggplot(data = EcoData) +
-  geom_point(aes(x = growth, y = inc_vote)) +
-  ylab("Incumbent-Party Vote Percentage") +
-  xlab("Percentage change in Real GDP Per Capita") +
-  geom_smooth(aes(x = growth, y = inc_vote),
-              method = "lm", color = "goldenrod3")
-```
-
-```
-## `geom_smooth()` using formula 'y ~ x'
-```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
+![](GRlin.jpg)
 
 
 
@@ -457,31 +414,13 @@ ggplot(data = EcoData) +
               method = "lm", color = "goldenrod3") +
   geom_hline(yintercept=mean(EcoData$inc_vote), linetype = "dashed") +
   geom_vline(xintercept=mean(EcoData$growth), linetype = "dashed")
-```
 
+ggsave("Bilder/meansreg.jpg")
 ```
-## `geom_smooth()` using formula 'y ~ x'
-```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-21-1.pdf)<!-- --> 
+![](Bilder/meansreg.jpg)
 
 
-```r
-ggplot(data = EcoData) +
-  geom_point(aes(x = growth, y = inc_vote)) +
-  ylab("Incumbent-Party Vote Percentage") +
-  xlab("Percentage change in Real GDP Per Capita") +
-  geom_smooth(aes(x = growth, y = inc_vote),
-              method = "lm", color = "goldenrod3") +
-  geom_hline(yintercept=mean(EcoData$inc_vote), linetype = "dashed") +
-  geom_vline(xintercept=mean(EcoData$growth), linetype = "dashed")
-```
 
-```
-## `geom_smooth()` using formula 'y ~ x'
-```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
 
 
 
@@ -508,20 +447,10 @@ ggplot(data = EcoData) +
   ylab("Incumbent-Party Vote Percentage") +
   xlab("Percentage change in Real GDP Per Capita") +
   geom_line(aes(x = growth, y = fitted))
+
+ggsave("Bilder/FittedValues.jpg")
 ```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
-
-
-```r
-ggplot(data = EcoData) +
-  geom_point(aes(x = growth, y = inc_vote)) +
-  ylab("Incumbent-Party Vote Percentage") +
-  xlab("Percentage change in Real GDP Per Capita") +
-  geom_line(aes(x = growth, y = fitted))
-```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
+![](Bilder/FittedValues.jpg)
 
 
 
@@ -536,22 +465,10 @@ ggplot(data = EcoData) +
   geom_line(aes(x = growth, y = fitted)) +
   geom_hline(yintercept=mean(EcoData$inc_vote), linetype = "dashed") +
   geom_vline(xintercept=mean(EcoData$growth), linetype = "dashed")
+
+ggsave("FittedMean.jpg")
 ```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-26-1.pdf)<!-- --> 
-
-
-```r
-ggplot(data = EcoData) +
-  geom_point(aes(x = growth, y = inc_vote)) +
-  ylab("Incumbent-Party Vote Percentage") +
-  xlab("Percentage change in Real GDP Per Capita") +
-  geom_line(aes(x = growth, y = fitted)) +
-  geom_hline(yintercept=mean(EcoData$inc_vote), linetype = "dashed") +
-  geom_vline(xintercept=mean(EcoData$growth), linetype = "dashed")
-```
-
-![](Seminar-5_files/figure-latex/unnamed-chunk-27-1.pdf)<!-- --> 
+![](FittedMean.jpg)
 
 
 
