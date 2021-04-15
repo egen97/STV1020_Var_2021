@@ -45,6 +45,6 @@ output:
   * Velg ut et land, ossen har tilitten utviklet seg over tid?
   * Sammenlign noen land, har noen av de høyere tillitt enn andre?
   
-* Velg ut ett land, men alle runder de er med. Lag en variabel som har verdien 1 om de i ett gitt år har høyere tilitt
+* Velg ut ett land, men alle runder det er med i. Lag en variabel som har verdien 1 om de i ett gitt år har høyere tilitt
   enn gjennomsnittet, og to om det er under. 
   * Finn hvilke år de har høyere enn gjennomsnittet. 

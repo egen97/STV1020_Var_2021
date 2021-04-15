@@ -24,7 +24,9 @@ output:
 * Trust_Police: “Stoler du på politiet?” 1:10 (10 = “Høy tillit”)
 * Trust_Politicans: “Stoler du på politikere?” 1:10 (10 = “Høy Tillit”)
 * Vote: “Stemte du ved sist valg?”: 1 = ja/2 = Nei
-* Party_Voted_NO: “Hva stemte du på?” (Kun for norske respondenter)
+* Gender: 1 == Menn, 2 == Kvinner
+* Party_Voted_NO: “Hva stemte du på?” (Kun for norske respondenter):
+    1 Rødt, 2 SV, 3 AP, 4 Venstre, 5 KrF, 6 SP, 7 Høyre, 8 FrP, 9 Kystpartiet, 10 MDG, 11 Other, 66 Not applicable, 77 Refusal
 * Left_Right: “Høyre-Venstre skala” 0 = Venstre/10 = Høyre
 * Satisfied_Gov: “Hvor fornøyd er du med regjeringen?” 1:10 (10 = “Veldig fornøyd”)
 * Gov_Reduce_IncomDif: “Burde regjeringen jobbe for å redusere inntektsforskjeller?” 1:5 (1 = “Agree”)
