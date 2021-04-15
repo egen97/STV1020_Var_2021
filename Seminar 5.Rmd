@@ -117,7 +117,7 @@ Når du lager en faktor-variabel så tar R utgangspunkt i alfabetet når referan
 Når en omkoder numeriske variabler så kan det være nyttig å lage et plott for å sjekke at det ble riktig. Her bruker vi `fill` argumentet til å gi ulik farge 
 til observasjonene basert på om det var vekst eller ikke: 
 
-```{r, eval = TRUE}
+```{r, eval = TRUE, warning=FALSE, message=FALSE}
 ggplot(data = EcoData) +
   geom_bar(aes(x=growth, fill = growth_dich),
                binwidth = 1) +
@@ -127,7 +127,7 @@ ggplot(data = EcoData) +
 
 ```
 
-```{r, include = TRUE}
+```{r, include = TRUE, warning=FALSE, message=FALSE}
 ggplot(data = EcoData) +
   geom_bar(aes(x=growth, fill = growth_dich),
                binwidth = 1) +
@@ -148,14 +148,14 @@ For å lagre plottet lokalt på pc-en så kan bruker export og save as under Plo
 ## Litt plotting før regresjon
 Før du kjører en regresjon så kan det være lurt å plotte den avhengige og den uavhengige variabelen din. I vårt tilfelle er dette variabelene `inc_vote` og `growth`. For å få til dette bruker vi `ggplot`.
 
-```{r, eval = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
   xlab("Percentage change in Real GDP Per Capita") 
 ```
 
-```{r, include = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
@@ -217,7 +217,7 @@ Informasjonen vi får ved hjelp av `summary()` og `stargazer()` er veldig nyttig
 Et alternativ til tabeller er å plotte resultatene fra regresjonen. Nå skal vi lage figur 9.4 i kapittel ni ved hjelp av `ggplot()`. 
 
 Først lager vi et plott med de observerte verdiene (dette er det samme plottet som vi lagde tidligere): 
-```{r, eval = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   theme_bw() +
@@ -225,7 +225,7 @@ ggplot(data = EcoData) +
   xlab("Percentage change in Real GDP Per Capita") 
 ```
 
-```{r, include = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   theme_bw() +
@@ -244,7 +244,7 @@ Det neste vi skal gjøre er å legge til regresjonslinjen i plottet. Dette kan g
 
 Den første måten er å bruke `geom_smooth(method = "lm")` for å plotte en regresjonslinje:
 
-```{r, eval = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
@@ -253,7 +253,7 @@ ggplot(data = EcoData) +
               method = "lm", color = "goldenrod3")
 ```
 
-```{r, include = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
@@ -270,7 +270,7 @@ I kapittel ni viser Kellstedt og  Whitten at regresjonslinjen krysser
 utvalgets gjennomsnittsverdier på uavhengig og avhengig variabel. Det kan vi også
 vise ved å legge til to linjer i koden vår:
 
-```{r, eval = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
@@ -281,7 +281,7 @@ ggplot(data = EcoData) +
   geom_vline(xintercept=mean(EcoData$growth), linetype = "dashed")
 ```
 
-```{r, include = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
@@ -311,7 +311,7 @@ EcoData <- EcoData %>%
 Nå kan vi bruke denne informasjonen til å legge til en regresjonslinje i plottet vårt. Prikkene angir de ulike *observerte* verdikominasjonene, mens den rette
 linjen gir oss den lineære sammenhengen fra modellen vår. 
 
-```{r, eval = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
@@ -319,7 +319,7 @@ ggplot(data = EcoData) +
   geom_line(aes(x = growth, y = fitted))
 ```
 
-```{r, include = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
@@ -333,7 +333,7 @@ ggplot(data = EcoData) +
 
 Også her kan vi vise at regresjonslinjen krysser utvalgets gjennomsnittsverdier på uavhengig og avhengig variabel. Vi legger til de to linjene `geom_hline()` og `geom_vline()`:
 
-```{r, eval = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
@@ -344,7 +344,7 @@ ggplot(data = EcoData) +
 
 ```
 
-```{r, include = TRUE}
+```{r}
 ggplot(data = EcoData) +
   geom_point(aes(x = growth, y = inc_vote)) +
   ylab("Incumbent-Party Vote Percentage") +
