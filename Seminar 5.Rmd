@@ -6,7 +6,6 @@ output:
     pdf_document: 
       keep_md: yes
     github_document:
-      keep_md: no
     fig_width: 5
     fig_height: 5
     dev: jpeg
