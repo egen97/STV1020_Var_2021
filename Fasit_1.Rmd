@@ -1,0 +1,97 @@
+---
+title: "Oppgaver Seminar 1"
+author: "Eric"
+date: "25 1 2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Oppgaver
+
+![](C:/Users/egen9/OneDrive/Documents/UiO/Master_STV/1020_Var_2021/PDF-skript/Bilder/Flaw.jpg)
+
+
+1. Finn 5-7 andre i seminaret. Sett navn, alder, hjemby og favorittfilm inn i ett datasett. 
+
+```{r}
+#Her vil jeg lage 4 vektorer som inneholder de dataene jeg vil ha. 
+Navn <- c("Theodor Kittelsen", "Marie Høeg", "Arne Vinje", "Ivar P. Tveiten", "Apostelen Peter",
+          "Gunnar GT")
+Alder <- c(20, 48, 39, 12, 32, 40)
+By <- c("Kragerø", "Langesund", "Vinje", "Fyresdal", "Kvitseid", "Drangedal")
+Film <- c("The Sunset Limited", "Ringenes Herre", "I'm thinking of Ending Things",
+          "Je ne suis pas un homme facile", "Intouchables", "Drangedal Bortforklaring")
+#Her er det viktig at alle er like lange. Skulle jeg manglet noen måtte
+#jeg har skrevet inn NA for å fylle ut lengden. 
+
+#Nå som jeg har dette kan jeg samle de til en data.frame
+
+New_Friends <- data.frame(Navn, Alder, By, Film)
+```
+
+
+2.  Finn gjennomsnitt, standardavik, og median av alder i datasettet dit
+
+```{r}
+#Det er to måter vi kan gjøre dette på. Enten med de spesifikke funksjonene
+mean(New_Friends$Alder)
+sd(New_Friends$Alder)
+median(New_Friends$Alder)
+
+#Eller ved å bruke summary()
+summary(New_Friends$Alder)
+```
+
+
+3. Finn avstanden fra hjembyene til Oslo, og legg inn dette som en ny kolonne i datasettet. 
+   Er du usikker på hvordan, se om du finner ut av det på google. 
+   
+```{r}
+#For å finne avstanden har jeg bare brukt Google Maps. 
+#Så lager jeg en ny vektor med avstandene i samme rekkefølge
+#som byene kommer i datasettet. 
+
+Avstand <- c(201, 170, 211, 236, 179, 188)
+#Så kan jeg legge til denne i datasettet ved å definere en variabel som vanlig
+New_Friends$Avstand <- Avstand
+
+```
+   
+
+4. table() funksjonen gjør at du kan lage krysstabeller. Mellom parantesene setter du inn navnet på variablene
+   du vil ha med. Lag en tabell med navn og avstand fra hjembyen. Hvem er lengst hjemmefra?
+   
+```{r}
+#Table funksjonen er ganske enkel i at vi bare kan sette inn de to variablene
+table(New_Friends$Navn, New_Friends$Avstand)
+#Her kan vi se at den som har 1 på det høyeste tallet, helt til høyre,
+#er Ivar P. Tveiten ifra Fyresdal. 
+#Dere ser kanskje at dette er en litt rar måte å vise det frem på?
+#En viktig del av seminarer vil bli å se på hvordan vi kan presentere
+#data på en god måte! Prøv gjerne å se om dere kan få til noe bedre!
+```
+
+   
+5. Lag et diagramm som viser fordelingen av alder. Om du skriver geom_ og så trykker på tab-knappen,
+   vil du kunne bla igjennom alle de forskjellige plottypene. Velg det du synes passer best, og prøv
+   deg frem. 
+
+
+```{r}
+#For alder tenker jeg det beste er enten et density-plot eller
+#et histogram. Først må vi huske å aktivere pakken med library
+
+library(tidyverse)
+
+ggplot(New_Friends, aes(Alder)) +
+  geom_bar() +
+  geom_density(colour = "red")
+
+```
+
+

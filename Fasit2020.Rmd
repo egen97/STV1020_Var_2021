@@ -1,0 +1,188 @@
+---
+title: "Fasit 2020"
+author: "Eric"
+date: "12 4 2021"
+output: 
+    pdf_document: 
+      keep_md: yes
+    github_document:
+    fig_width: 5
+    fig_height: 5
+    dev: jpeg
+---
+
+![](Bilder/dogate.png)
+
+
+
+
+
+
+
+
+# Oppgave 1
+
+Hent datasett
+
+```{r}
+library(tidyverse)
+
+wages_data <- read.csv("https://raw.githubusercontent.com/langoergen/stv1020R/master/data/wages.csv")
+
+```
+
+
+# Oppgave 2
+
+Se på variabelen for inntekt og utdanning. Hent ut gjennomsnittet, minimumsverdi, maxverdi og standardavvik hos begge variablene. Hvor mange missing-verdier er det hos de to variablene?
+
+
+
+
+
+
+```{r}
+
+summary(wages_data$wages)
+sd(wages_data$wages, na.rm =  TRUE)
+summary(wages_data$education)
+sd(wages_data$education, na.rm = TRUE)
+#Inntekt har har henholdsvis 15.5, 2.3, 49.9, og 7.88
+#Utdanning har 12.5, 0, 20, 3.36
+
+
+```
+
+
+
+# Oppgave 3
+
+- Lag og presenter et histogram for inntektsvariabelen. Hva viser det?
+
+```{r}
+# Histogram 
+ggplot(wages_data, aes(wages)) +
+  geom_histogram(binwidth = 1, fill = "springgreen1") +
+  theme_classic() +
+  labs(title = "Inntekt")
+#Histogrammet viser at vi har en høyreskjev fordeling, men noe lang hale
+```
+
+
+
+
+
+# Oppgavve 4.
+- Plott inntekt og utdanning mot hverandre i et spredningsplott/scatterplot. Gi en kort kommentar til
+plottet
+
+
+```{r}
+
+ggplot(wages_data, aes(education ,wages)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_classic()+
+  labs(x = "Utdanning", y = "Lønn", title = "Forhold mellom inntekt og utdanning")
+
+#Plottet viser at lønn generelt stiger med utanning, spesielt for de individer som har en svært lav utdannelse. 
+#Samtidig er det en stor grad av spredning, og utdanning alene forklarer lite av lønnsforskjellene. 
+
+
+```
+
+
+
+# Oppgave 5
+
+5.
+- Opprett en krysstabell mellom kjønn og utdanning.
+
+
+```{r}
+table(wages_data$sex,wages_data$education)
+
+```
+
+
+# Oppgave 6
+
+Opprett en numerisk, dikotom variabel for kjønn. Du kan selv velge om kvinne skal få verdien 0 eller
+1, mens mann får den motsatte verdien.
+
+- Opprett en dikotom utdannings variabel som har verdien 1 om originalvariabel har større verdier
+enn sitt gjennomsnitt og 0 om originalvariabelen har mindre verdier enn sitt gjennomsnitt.
+
+- Kontroller om de to omkodingene har gått i orden med en krysstabell
+
+```{r}
+
+wages_data <- wages_data %>% 
+  mutate(sex2 = ifelse(sex == "Female", 1, 0),
+         education2 = ifelse(education > mean(education, na.rm = TRUE) , 1, 0))
+
+
+```
+
+
+# Oppgave 7 
+ - Kontroller om de to omkodingene har gått i orden med en krysstabell.
+
+
+```{r}
+table(wages_data$sex2,wages_data$sex)
+
+table(wages_data$education,wages_data$education2)
+
+
+```
+
+
+
+# Oppgave 8
+
+- Lag et nytt datasett som inneholder variablene inntekt, utdanning, kjønn, og de to nye variablene du opprettet.
+
+```{r}
+new_data <- wages_data %>% 
+  select(wages, education, sex,age, education2, sex2)
+
+
+```
+
+# Oppgave 9
+
+- Estimer en enkel bivariat regresjonsmodell med inntekt som avhengig variabel, og utdanning som
+uavhengig variabel, tolk resultatene
+
+
+```{r}
+
+m1 <- lm(wages ~ education, 
+         data = new_data,
+         na.action = "na.omit")
+summary(m1)
+
+#Inntekt har en stigningskoeffisient på 0,8, signifikant på < 0.001 nivå, og justert R^2 på 0.09
+
+
+
+
+```
+
+# Oppgave 10 
+- Legg til kjønn som en kontrollvariabel i denne modellen. Estimer modellen og tolk resultatene
+
+
+```{r}
+
+m2 <- lm(wages ~ education + sex, 
+                 data = new_data,
+                 na.action = "na.omit")
+
+summary(m2)
+
+#Med kjønn ser vi at vi kan forklare noe mer varians. Menn tjener også i snitt 3.5 skalapunkter mer enn kvinner. 
+
+```
+
